@@ -9,9 +9,6 @@ resource "azurerm_storage_account" "this" {
   tags                     = var.tags
   min_tls_version          = var.min_tls_version
 
-  # Enable HTTPS traffic only
-  enable_https_traffic_only = var.enable_https_traffic_only
-
   # Hierarchical namespace
   is_hns_enabled = var.is_hns_enabled
 

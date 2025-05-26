@@ -64,7 +64,7 @@ variable "tags" {
 }
 
 variable "enable_https_traffic_only" {
-  description = "Boolean flag which forces HTTPS if enabled"
+  description = "Boolean flag which forces HTTPS if enabled (Deprecated: This setting is now enabled by default in newer Azure provider versions)"
   type        = bool
   default     = true
 }
