@@ -6,7 +6,7 @@ A collection of reusable Terraform modules for various cloud providers.
 
 ### Azure
 
-- [Storage Account](./modules/azure/storage-account/README.md) - Create and manage Azure Storage Accounts with configurable options.
+- [Storage Account](./modules/azure/storage-account/README.md) - Create and manage Azure Storage Accounts with configurable options, including network rules, containers, blob properties, static websites, identity management, and advanced security features.
 
 ## Usage
 

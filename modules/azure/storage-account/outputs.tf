@@ -47,6 +47,51 @@ output "primary_dfs_endpoint" {
   value       = azurerm_storage_account.this.primary_dfs_endpoint
 }
 
+output "primary_file_endpoint" {
+  description = "The endpoint URL for file storage in the primary location"
+  value       = azurerm_storage_account.this.primary_file_endpoint
+}
+
+output "primary_queue_endpoint" {
+  description = "The endpoint URL for queue storage in the primary location"
+  value       = azurerm_storage_account.this.primary_queue_endpoint
+}
+
+output "primary_table_endpoint" {
+  description = "The endpoint URL for table storage in the primary location"
+  value       = azurerm_storage_account.this.primary_table_endpoint
+}
+
+output "primary_web_endpoint" {
+  description = "The endpoint URL for web storage in the primary location"
+  value       = azurerm_storage_account.this.primary_web_endpoint
+}
+
+output "secondary_blob_endpoint" {
+  description = "The endpoint URL for blob storage in the secondary location"
+  value       = azurerm_storage_account.this.secondary_blob_endpoint
+}
+
+output "secondary_file_endpoint" {
+  description = "The endpoint URL for file storage in the secondary location"
+  value       = azurerm_storage_account.this.secondary_file_endpoint
+}
+
+output "secondary_queue_endpoint" {
+  description = "The endpoint URL for queue storage in the secondary location"
+  value       = azurerm_storage_account.this.secondary_queue_endpoint
+}
+
+output "secondary_table_endpoint" {
+  description = "The endpoint URL for table storage in the secondary location"
+  value       = azurerm_storage_account.this.secondary_table_endpoint
+}
+
+output "secondary_web_endpoint" {
+  description = "The endpoint URL for web storage in the secondary location"
+  value       = azurerm_storage_account.this.secondary_web_endpoint
+}
+
 output "containers" {
   description = "Created storage containers"
   value       = azurerm_storage_container.containers
