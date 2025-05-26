@@ -221,7 +221,7 @@ module "storage_account_with_files_auth" {
 | account_kind | Defines the Kind of account | `string` | `"StorageV2"` | no |
 | access_tier | Defines the access tier for BlobStorage, FileStorage and StorageV2 accounts | `string` | `"Hot"` | no |
 | tags | A mapping of tags to assign to the resource | `map(string)` | `{}` | no |
-| enable_https_traffic_only | Boolean flag which forces HTTPS if enabled | `bool` | `true` | no |
+| enable_https_traffic_only | Boolean flag which forces HTTPS if enabled (Deprecated: This setting is now enabled by default in newer Azure provider versions) | `bool` | `true` | no |
 | min_tls_version | The minimum supported TLS version for the storage account | `string` | `"TLS1_2"` | no |
 | is_hns_enabled | Is Hierarchical Namespace enabled? | `bool` | `false` | no |
 | allow_nested_items_to_be_public | Allow or disallow public access to all blobs or containers | `bool` | `true` | no |
