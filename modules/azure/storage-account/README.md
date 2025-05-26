@@ -2,6 +2,8 @@
 
 This module creates an Azure Storage Account with configurable options, including network rules, tags, and container creation.
 
+> **Looking for a quick demo?** Jump to the [Quick Demo](#quick-demo) section for the simplest configuration.
+
 ## Features
 
 - Create a storage account with customizable configuration
@@ -22,6 +24,44 @@ This module creates an Azure Storage Account with configurable options, includin
 - Edge zone configuration
 - Large file share capabilities
 
+## Quick Demo
+
+For a simple demonstration, you only need to specify these three required parameters:
+
+```hcl
+module "storage_account_demo" {
+  source = "github.com/0GiS0/terraform-modules//modules/azure/storage-account"
+
+  name                = "mystorageaccount"
+  resource_group_name = "my-resource-group"
+  location            = "westeurope"
+}
+```
+
+That's it! This will create a standard storage account with reasonable defaults:
+- Standard performance tier
+- Locally redundant storage (LRS)
+- StorageV2 account kind
+- Hot access tier
+
+### Minimal Configuration Guide
+
+If you're just getting started or need a quick demo, focus on these parameters:
+
+1. **Required parameters:**
+   - `name`: The name of your storage account (must be globally unique)
+   - `resource_group_name`: The name of an existing resource group
+   - `location`: Azure region where the storage account will be created
+
+2. **Commonly customized (but optional) parameters:**
+   - `account_tier`: Performance tier ("Standard" or "Premium")
+   - `account_replication_type`: Data redundancy type ("LRS", "GRS", etc.)
+   - `tags`: Resource tags for organization
+
+3. **Additional features:**
+   - For container creation, use the `containers` parameter only when needed
+   - All other parameters can be left at their defaults for most demo scenarios
+
 ## Usage
 
 ### Basic Storage Account
@@ -35,11 +75,12 @@ module "storage_account" {
   location            = "westeurope"
   
   # Optional configuration with defaults
-  account_tier             = "Standard"
-  account_replication_type = "LRS"
-  account_kind             = "StorageV2"
-  access_tier              = "Hot"
+  account_tier             = "Standard"  # Optional: Performance tier
+  account_replication_type = "LRS"       # Optional: Redundancy type
+  account_kind             = "StorageV2" # Optional: Account kind
+  access_tier              = "Hot"       # Optional: Access tier
 
+  # Optional: Add tags for better organization
   tags = {
     environment = "production"
     owner       = "devops-team"
@@ -213,9 +254,9 @@ module "storage_account_with_files_auth" {
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| name | Name of the storage account | `string` | n/a | yes |
-| resource_group_name | Name of the resource group | `string` | n/a | yes |
-| location | Azure location where the resource should be created | `string` | n/a | yes |
+| name | Name of the storage account | `string` | n/a | yes (required) |
+| resource_group_name | Name of the resource group | `string` | n/a | yes (required) |
+| location | Azure location where the resource should be created | `string` | n/a | yes (required) |
 | account_tier | Defines the Tier to use for this storage account (Standard or Premium) | `string` | `"Standard"` | no |
 | account_replication_type | Defines the type of replication to use for this storage account | `string` | `"LRS"` | no |
 | account_kind | Defines the Kind of account | `string` | `"StorageV2"` | no |
