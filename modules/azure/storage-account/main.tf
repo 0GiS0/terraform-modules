@@ -1,3 +1,13 @@
+terraform {
+  required_providers {
+    azurerm = {
+      source                = "hashicorp/azurerm"
+      configuration_aliases = [azurerm.this]
+    }
+  }
+}
+
+
 resource "azurerm_storage_account" "this" {
   name                     = var.name
   resource_group_name      = var.resource_group_name
